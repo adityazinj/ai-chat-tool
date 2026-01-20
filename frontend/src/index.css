@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+/* for the scrollbar */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.invert-logo {
+  filter: invert(1);
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+
