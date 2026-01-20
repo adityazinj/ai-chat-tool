@@ -44,7 +44,7 @@ function App() {
     setQuery("");
 
     setTyping(true);
-    const response = await fetch("https://ai-chat-tool.onrender.com", {
+    const response = await fetch("https://ai-chat-tool.onrender.com/api/chat/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
