@@ -1,0 +1,45 @@
+# -------------------------
+# Django
+# -------------------------
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+
+# -------------------------
+# Virtual Environment
+# -------------------------
+venv/
+env/
+.venv/
+
+# -------------------------
+# Environment Variables
+# -------------------------
+.env
+
+# -------------------------
+# Media & Static
+# -------------------------
+media/
+staticfiles/
+
+# -------------------------
+# IDE / OS
+# -------------------------
+.vscode/
+.idea/
+.DS_Store
+
+# -------------------------
+# Node (if frontend inside backend)
+# -------------------------
+node_modules/
+
+# -------------------------
+# Migrations (optional)
+# -------------------------
+# **keep this commented unless asked**
+# */migrations/
+# !*/migrations/__init__.py
