@@ -44,13 +44,16 @@ function App() {
     setQuery("");
 
     setTyping(true);
-    const response = await fetch("https://ai-chat-tool.onrender.com/api/chat/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      "https://ai-chat-tool.onrender.com/api/chat/",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message: query }),
       },
-      body: JSON.stringify({ message: query }),
-    });
+    );
 
     const data = await response.json();
     let dataReceive = data.reply;
@@ -62,7 +65,7 @@ function App() {
     setResult((prev) => [...prev, { role: "ai", text: dataReceive }]);
   };
   const [darkMode, setDarkMode] = useState("dark");
-  
+
   useEffect(() => {
     if (darkMode === "dark") {
       document.documentElement.classList.add("dark");
@@ -73,7 +76,7 @@ function App() {
 
   return (
     <div className={darkMode == "dark" ? "dark" : "light"}>
-      <div className="grid grid-cols-5 h-screen text-center">
+      <div className="grid grid-cols-1 md:grid-cols-5 h-screen text-center">
         <select
           onChange={(e) => setDarkMode(e.target.value)}
           className="fixed bottom-0 p-2 rounded-md m-4 outline-none
@@ -87,20 +90,20 @@ function App() {
             Light
           </option>
         </select>
-        <RecentSearch
-          history={history}
-          setHistory={setHistory}
-          setSelectedHistory={setSelectedHistory}
-          setQuery={setQuery}
-          setResult={setResult}
-        />
+        <div className="hidden md:block">
+          <RecentSearch
+            history={history}
+            setHistory={setHistory}
+            setSelectedHistory={setSelectedHistory}
+            setQuery={setQuery}
+            setResult={setResult}
+          />
+        </div>
 
-        <div className="col-span-4 relative">
+        <div className="md:col-span-4 col-span-1 relative">
           <div className="absolute top-4 left-1/2 -translate-x-1/2 z-40">
             <h1
-              className="font-bold font-sans text-3xl text-center
-               bg-linear-to-r from-pink-500 via-pink-400 to-purple-500
-               text-transparent bg-clip-text h-10"
+              className="font-bold font-sans text-xl md:text-3xl text-center bg-linear-to-r from-pink-500 via-pink-400 to-purple-500 text-transparent bg-clip-text"
             >
               Hello User, Ask me Anything
             </h1>
@@ -109,7 +112,7 @@ function App() {
           <div className="container h-120 pt-20">
             <div
               ref={scrollToAns}
-              className="dark:text-zinc-300 text-zinc-800 overflow-auto h-full w-full p-15"
+              className="dark:text-zinc-300 text-zinc-800 overflow-auto h-full w-full p-4 md:p-8"
             >
               <ul>
                 {result.map((item, index) => (
@@ -127,7 +130,7 @@ function App() {
           <form
             action=""
             onSubmit={askQuery}
-            className="dark:bg-zinc-800 bg-gray-100 w-1/2 m-auto dark:text-white text-zinc-800 flex p-1 pr-5 border rounded-full dark:border-zinc-700 border-zinc-400 shadow-sm shadow-zinc-500/50"
+            className="dark:bg-zinc-800 bg-gray-100 w-[95%] md:w-1/2 m-auto dark:text-white text-zinc-800 flex p-1 pr-5 border rounded-full dark:border-zinc-700 border-zinc-400 shadow-sm shadow-zinc-500/50"
           >
             <input
               type="text"
