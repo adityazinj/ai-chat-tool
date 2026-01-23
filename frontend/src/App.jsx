@@ -79,17 +79,19 @@ function App() {
       <div className="grid grid-cols-1 md:grid-cols-5 h-screen text-center">
         <select
           onChange={(e) => setDarkMode(e.target.value)}
-          className="fixed bottom-0 p-2 rounded-md m-4 outline-none
-             border dark:border-zinc-800 border-zinc-500
-             bg-zinc-500 dark:bg-zinc-800 dark:text-white"
+          className="
+    fixed bottom-4 right-4
+    z-50
+    p-2 rounded-md outline-none
+    border dark:border-zinc-800 border-zinc-500
+    bg-zinc-500 dark:bg-zinc-800 dark:text-white
+    text-sm md:text-base
+  "
         >
-          <option value="dark" className="bg-zinc-800 text-white">
-            Dark
-          </option>
-          <option value="light" className="bg-white text-black">
-            Light
-          </option>
+          <option value="dark">Dark</option>
+          <option value="light">Light</option>
         </select>
+
         <div className="hidden md:block">
           <RecentSearch
             history={history}
@@ -102,9 +104,7 @@ function App() {
 
         <div className="md:col-span-4 col-span-1 relative">
           <div className="absolute top-4 left-1/2 -translate-x-1/2 z-40">
-            <h1
-              className="font-bold font-sans text-xl md:text-3xl text-center bg-linear-to-r from-pink-500 via-pink-400 to-purple-500 text-transparent bg-clip-text"
-            >
+            <h1 className="font-bold font-sans text-xl md:text-3xl text-center bg-linear-to-r from-pink-500 via-pink-400 to-purple-500 text-transparent bg-clip-text">
               Hello User, Ask me Anything
             </h1>
           </div>
